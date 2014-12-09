@@ -1,0 +1,24 @@
+<h1>Listing articles</h1>
+ 
+ <h1> Hello, Rails</h1>
+ <%= link_to 'My Blog', controller: 'posts'%>
+ <%= link_to 'New Post', new_post_path%>
+<table border=1>
+  <tr>
+    <th>ID</th>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Created AT</th>
+    <th>Updated AT</th>
+  </tr>
+ 
+  <% @fetch_posts.each do |f| %>
+    <tr>
+      <td><%= f.id %></td>
+      <td><%= f.title %></td>
+      <td><%= f.text %></td>
+      <td><%= f.created_at.to_formatted_s(:short)   %></td>
+      <td><%= f.updated_at.to_formatted_s(:short)   %></td>
+    </tr>
+  <% end %>
+</table>

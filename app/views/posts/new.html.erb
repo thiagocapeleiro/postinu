@@ -1,0 +1,26 @@
+<h1>teste</h1>
+<%= form_for :post, url:posts_path do |f| %>
+	<% if @post.errors.any? %>
+		<div id="error_explanation">
+			<h2> <%=pluralize(@post.errors.count, "error") %> prohibited this post from being saved: </h2>
+				 <ul>
+				 <%@post.errors.full_messages.each do |f| %>
+				 <li> <%= f %> </li>
+				 <% end %>
+				</ul>
+				<br>
+		</div>
+		<% end %>
+	<p>
+		<%=f.label :title %><br>
+		<%=f.text_field :title %>
+	</p>
+	<p>
+		<%=f.label :text %><br>
+		<%=f.text_area :text %>
+	</p>
+	<p>
+		<%=f.submit "Criar Post" %>
+	</p>
+<% end %>
+<%= link_to "Back to listing", posts_path%>	
