@@ -1,0 +1,12 @@
+<%= form_for([@fetch_post, @fetch_post.comments.build]) do |f| %>
+	<p>
+		<%= f.label :commenter %>
+		<%= f.text_field :commenter %>
+		</p>
+	<p>
+		<%= f.label :body %>
+		<%= f.text_area :body %>
+	</p>	
+	<p>
+		<%= f.submit %>
+<% end %>	

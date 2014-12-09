@@ -1,0 +1,11 @@
+<p>
+	<strong>Commenter:</strong><br>
+	<%= comment.commenter%><%= comment.created_at.strftime(" on %m of %B,  %Y at %H:%M")%>
+</p>
+<p>
+	<strong>Comment:</strong><br>
+	<%= comment.body %>
+</p>
+<p>
+	<%= link_to "Delete comment", [comment.post, comment], method: :delete, 	data: {confirm: "Are you sure?"} %>
+</p>
