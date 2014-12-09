@@ -1,15 +1,16 @@
 <h1>Listing articles</h1>
  
  <h1> Hello, Rails</h1>
- <%= link_to 'My Blog', controller: 'posts'%>
- <%= link_to 'New Post', new_post_path%>
+<%= link_to 'My Blog', controller: 'posts'%>
+<%= link_to 'New Post', new_post_path%>
+<center><%=paginate @fetch_posts %></center>
 <table border=1>
   <tr>
     <th>ID</th>
     <th>Title</th>
     <th>Text</th>
-    <th>Created AT</th>
-    <th>Updated AT</th>
+    <th></th>
+    <th></th>
   </tr>
   <br>
   <br>
@@ -20,8 +21,10 @@
       <td><%= f.id %></td>
       <td><%= f.title %></td>
       <td><%= f.text %></td>
-      <td><%= f.created_at.to_formatted_s(:short)   %></td>
-      <td><%= f.updated_at.to_formatted_s(:short)   %></td>
+      <td><%= link_to 'Show', post_path(f)%></td>
+      <td><%= link_to 'Edit', edit_post_path(f)%></td>
+      <td><%= link_to 'Delete?', post_path(f), method: :delete, data: {confirm: 'Are you fucking sure?'}%>
     </tr>
   <% end %>
 </table>
+<center><%=paginate @fetch_posts %></center>

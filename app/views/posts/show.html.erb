@@ -1,3 +1,4 @@
+<!-- Posts Listing Block -->
 <p>
   <strong>Title:</strong>
   <%= @fetch_post.title %>
@@ -7,4 +8,13 @@
   <strong>Text:</strong>
   <%= @fetch_post.text %>
 </p>
-<%= link_to "Back to listing", posts_path%>	
+
+<!-- Comment Block -->
+<h2> Comments:</h2>
+<%= render @fetch_post.comments %>
+
+<!-- Comment Form Block -->
+<h2> Add a comment: </h2>
+<%= render 'comments/form'%>
+<%= link_to "Back to listing", posts_path%>	<br>
+<%= link_to "Edit", edit_post_path(@fetch_post)%>
